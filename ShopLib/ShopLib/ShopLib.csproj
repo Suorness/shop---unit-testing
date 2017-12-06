@@ -71,7 +71,6 @@
     <Compile Include="Discount.cs" />
     <Compile Include="ProductManager.cs" />
     <Compile Include="Products\Candy.cs" />
-    <Compile Include="Products\Cat.cs" />
     <Compile Include="Products\Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Shop.cs" />

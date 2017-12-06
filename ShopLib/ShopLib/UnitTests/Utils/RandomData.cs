@@ -1,5 +1,4 @@
 ﻿using Ploeh.AutoFixture;
-using Ploeh.AutoFixture.Kernel;
 
 namespace ShopLib.UnitTests.Utils
 {
