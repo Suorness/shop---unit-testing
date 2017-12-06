@@ -4,19 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ShopLib.Product
+namespace ShopLib.Products
 {
     public class Cat: Product
     {
-        public override int GetTotalCost()
-        {
-            return 1;
-        }
+        //public override int GetTotalCost()
+        //{
+        //    return 1;
+        //}
 
-        public override int GetTotalDiscount()
-        {
-            return GetTotalCost() * 2;
-        }
+        //public override int GetTotalDiscount()
+        //{
+        //    return GetTotalCost() * 2;
+        //}
 
         //public virtual int GetTotalDiscount2()
         //{

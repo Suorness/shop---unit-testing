@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ShopLib.Product
+namespace ShopLib.Products
 {
     public class ProductManager
     {
@@ -32,11 +32,11 @@ namespace ShopLib.Product
         }
 
 
-        public IEnumerator<Product> GetPrice()
-        {
-            var price = allProducts.GetEnumerator();
-            return price;
-        }
+        //public IEnumerator<Product> GetPrice()
+        //{
+        //    var price = allProducts.GetEnumerator();
+        //    return price;
+        //}
 
 
         public void AddDiscount(int id, Discount discount)

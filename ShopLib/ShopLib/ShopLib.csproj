@@ -70,11 +70,13 @@
     <Compile Include="Bill.cs" />
     <Compile Include="Discount.cs" />
     <Compile Include="ProductManager.cs" />
-    <Compile Include="Product\Cat.cs" />
-    <Compile Include="Product\Product.cs" />
+    <Compile Include="Products\Candy.cs" />
+    <Compile Include="Products\Cat.cs" />
+    <Compile Include="Products\Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Shop.cs" />
     <Compile Include="UnitTests\ProductTests.cs" />
+    <Compile Include="UnitTests\Tests\Basket_Tests.cs" />
     <Compile Include="UnitTests\Utils\FakeUtils.cs" />
     <Compile Include="UnitTests\Utils\RandomData.cs" />
   </ItemGroup>
@@ -88,6 +90,7 @@
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

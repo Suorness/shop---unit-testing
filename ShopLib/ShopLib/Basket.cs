@@ -4,18 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ShopLib.Product
+namespace ShopLib.Products
 {
     public class Basket
     {
         //id и product
-        private Dictionary<int, Product> items;
+        internal Dictionary<int, Product> items;
 
         public void Add(Product product)
         {
             if (items.ContainsKey(product.Id))
             {
-                items[product.Id].Count++;
+                items[product.Id].Count += product.Count;
             }
             else
             {
@@ -26,7 +26,7 @@ namespace ShopLib.Product
 
         public void Remove(Product product, int count = 1)
         {
-            if (items.ContainsKey(product.Id))
+            if (items.ContainsKey(product.Id) && count>=0)
             {
                 items[product.Id].Count -= count;
                 if (items[product.Id].Count <= 0)
@@ -56,12 +56,12 @@ namespace ShopLib.Product
         public Bill CalculateBill(Dictionary<int, Discount> discounts)
         {
             int totalCost;
-            var itemsOnBill = new Dictionary<int, Product>();
+            var itemsOnBill = new Dictionary<Product, int>();
             foreach(var item in items)
             {
-                totalCost = item.Value.GetTotalCost();
+                totalCost = GetCost(item.Value);
                 totalCost -= GetDiscount(item.Value, discounts);
-                itemsOnBill.Add(totalCost, item.Value);
+                itemsOnBill.Add(item.Value, totalCost);
             }
             var result = new Bill(itemsOnBill);
             return result;
@@ -75,6 +75,17 @@ namespace ShopLib.Product
                 var discount = discounts[product.Id];
                 result = discount.CountPriceWithDiscount(product.Count);
 
+            }
+            return result;
+        }
+
+        public int GetCost(Product product)
+        {
+            int result = 0;
+
+            if ((product.Cost > 0) && (product.Count > 0) )
+            {
+                result = product.Cost * product.Count;
             }
             return result;
         }

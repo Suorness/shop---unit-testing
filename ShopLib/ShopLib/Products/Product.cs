@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace ShopLib.Product
+namespace ShopLib.Products
 {
     public abstract class Product
     {
@@ -12,10 +8,6 @@ namespace ShopLib.Product
         public String Name { get; set; }
         public int Id { get; set; }
         public int Count { get; set; }
-
-        public abstract int GetTotalCost();
-        public abstract int GetTotalDiscount();
-
 
     }
 }

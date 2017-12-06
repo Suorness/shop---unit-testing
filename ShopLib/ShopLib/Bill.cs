@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ShopLib.Product
+namespace ShopLib.Products
 {
     public class Bill
     {
