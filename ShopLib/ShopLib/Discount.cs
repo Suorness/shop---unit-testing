@@ -11,13 +11,14 @@ namespace ShopLib
         public int ProductCount { get; private set; }
         public int DicountedPrice { get; private set; }
 
-        public  int CountPriceWithDiscount(int count)
+        public virtual int CountPriceWithDiscount(int count)
         {
             int result = 0;
-
-            result = count / ProductCount;
-
-            result *= DicountedPrice;
+            if (ProductCount > 0)
+            {
+                result = count / ProductCount;
+                result *= DicountedPrice;
+            }
 
             return result;
         }

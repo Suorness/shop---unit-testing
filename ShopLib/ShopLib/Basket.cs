@@ -26,7 +26,7 @@ namespace ShopLib.Products
 
         public void Remove(Product product, int count = 1)
         {
-            if (items.ContainsKey(product.Id) && count>=0)
+            if ( (items.ContainsKey(product.Id)) && (count >= 0) )
             {
                 items[product.Id].Count -= count;
                 if (items[product.Id].Count <= 0)
@@ -37,13 +37,13 @@ namespace ShopLib.Products
         }
 
 
-        public void Delete(Product product)
-        {
-            if (items.ContainsKey(product.Id))
-            {
-                Remove(product, items[product.Id].Count);
-            }
-        }
+        //public void Delete(Product product)
+        //{
+        //    if (items.ContainsKey(product.Id))
+        //    {
+        //        Remove(product, items[product.Id].Count);
+        //    }
+        //}
         
 
         public Basket()
@@ -55,19 +55,28 @@ namespace ShopLib.Products
         //id и скидка к соответствующему товару
         public Bill CalculateBill(Dictionary<int, Discount> discounts)
         {
-            int totalCost;
             var itemsOnBill = new Dictionary<Product, int>();
             foreach(var item in items)
             {
-                totalCost = GetCost(item.Value);
-                totalCost -= GetDiscount(item.Value, discounts);
+                int totalCost = Discounting(item.Value, discounts);
                 itemsOnBill.Add(item.Value, totalCost);
             }
             var result = new Bill(itemsOnBill);
             return result;
         }
 
-        public int GetDiscount(Product product, Dictionary<int, Discount> discounts)
+        internal int Discounting(Product product, Dictionary<int, Discount> discounts)
+        {
+            var result = 0;
+
+            result = GetCost(product);
+            result -= GetDiscount(product, discounts);
+
+            return result;
+
+        }
+
+        public virtual int GetDiscount(Product product, Dictionary<int, Discount> discounts)
         {
             int result = 0;
             if (discounts.ContainsKey(product.Id))
@@ -79,7 +88,7 @@ namespace ShopLib.Products
             return result;
         }
 
-        public int GetCost(Product product)
+        public virtual int GetCost(Product product)
         {
             int result = 0;
 
