@@ -75,8 +75,9 @@
     <Compile Include="Products\Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Shop.cs" />
-    <Compile Include="UnitTests\ProductTests.cs" />
     <Compile Include="UnitTests\Tests\Basket_Tests.cs" />
+    <Compile Include="UnitTests\Tests\Bill_Tests.cs" />
+    <Compile Include="UnitTests\Tests\Discount_Tests.cs" />
     <Compile Include="UnitTests\Utils\FakeUtils.cs" />
     <Compile Include="UnitTests\Utils\RandomData.cs" />
   </ItemGroup>

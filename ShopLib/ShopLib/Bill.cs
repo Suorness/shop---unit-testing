@@ -13,7 +13,7 @@ namespace ShopLib.Products
         /// </summary>
         public readonly Dictionary<Product, int> items;
         
-        public int TotalCost { get; private set; }
+        public int TotalCost { get; internal set; }
 
         public Bill(Dictionary<Product, int> items)  
         {

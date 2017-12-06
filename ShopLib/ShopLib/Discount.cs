@@ -8,8 +8,8 @@ namespace ShopLib
 {
     public class Discount
     {
-        public int ProductCount { get; private set; }
-        public int DicountedPrice { get; private set; }
+        public int ProductCount { get; internal set; }
+        public int DicountedPrice { get; internal set; }
 
         public virtual int CountPriceWithDiscount(int count)
         {
